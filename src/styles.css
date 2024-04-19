@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+    background-color: #320d43;
+    opacity: 1;
+    background-image: radial-gradient(circle at center center, rgb(12, 0, 120), #320d43), repeating-radial-gradient(circle at center center, #0c0078, #0c0078, 8px, transparent 64px, transparent 128px);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    color: white;
+}
