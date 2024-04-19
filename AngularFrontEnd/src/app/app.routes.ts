@@ -5,7 +5,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/main', pathMatch: 'full'},
-    { path: 'upload', component: UploadComponent },
-    { path: 'chatbot', component: ChatBotComponent },
-    { path: 'main', component: MainPageComponent}
+    { path: 'upload', component: UploadComponent, title: 'Upload Page' },
+    { path: 'chatbot', component: ChatBotComponent, title: 'ChatBot Page' },
+    { path: 'main', component: MainPageComponent, title: 'Main Page' }
 ];
