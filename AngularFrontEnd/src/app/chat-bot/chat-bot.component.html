@@ -1,2 +1,16 @@
 <app-header></app-header>
-<h1>Chatbot here...</h1>
+
+<div class="chat-area-wrapper">
+	<div class="chat-area">
+		<div class="bubbles">
+			@for (message of messages; track message) {
+				<app-chat-bubble [messageStr]="message"></app-chat-bubble><br>
+			}
+		</div>
+
+		<div class="chat-input">
+			<input id="message-input" type="text" (keydown.enter)="onEnter($event)">
+			<button id="send-button">Send</button>
+		</div>
+	</div>
+</div>

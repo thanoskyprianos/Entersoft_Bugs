@@ -21,11 +21,6 @@ def main(request):
 
 @csrf_exempt
 def test(request):
-	# print(request.body)
-	# print(request.FILES['file'].name)
-	# print(request.FILES['file'].name)
-	# print(request.FILES['file'].read())
-
 	p = Parser(request.FILES['file'].read())
 	p.parse()
 
