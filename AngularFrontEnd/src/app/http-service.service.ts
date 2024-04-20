@@ -21,14 +21,9 @@ export class HttpServiceService {
           // You could upload it like this:
           const formData = new FormData();
           formData.append('file', file, droppedFile.relativePath);
+          formData.append('type', dataType);
 
-          // Headers
-          const headers = new HttpHeaders({
-            'Content-Type': 'text/csv',
-            'type': `${dataType}`
-          })
-
-          const resp = this.http.post(this.url, formData, { headers: headers, responseType: 'blob' });
+          const resp = this.http.post(this.url, formData);
           resp.subscribe();
         });
     }
