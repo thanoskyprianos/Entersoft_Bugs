@@ -1,6 +1,6 @@
 <div class="dropzone-wrapper">
 	<form class="dropzone">
-		<ngx-file-drop id="test" dropZoneLabel="Drop files here or: " (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" accept=".csv" [showBrowseBtn]="true"></ngx-file-drop>
+		<ngx-file-drop id="test" dropZoneLabel="> Drop files here or:" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" accept=".csv" [showBrowseBtn]="true" dropZoneClassName="dropzone-style" contentClassName="content-style"></ngx-file-drop>
 
 		<select #types name="types" id="types" (change)="onSelected(types.value)">
 			<option value="">---Plese choose an option---</option>

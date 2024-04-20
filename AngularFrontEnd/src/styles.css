@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     margin: 0;
+    padding: 0;
 
     background-color: #320d43;
     opacity: 1;
@@ -9,9 +10,19 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 
-    font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: monospace;
+    color: white;
 }
 
-h1 {
-    color: white;
+header, footer {
+    width: 100%;
+    height: 50px;
+
+    background-color: rgba(34, 12, 114, 0.1);
+
+    box-shadow: 0 0 100px rgba(255, 255, 255, 0.3);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
