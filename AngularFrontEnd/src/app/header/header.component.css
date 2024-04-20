@@ -4,3 +4,8 @@ header {
 
     border-radius: 0 0 10px 10px;
 }
+
+button {
+	font-size: 16px;
+	scale: 0.75;
+}

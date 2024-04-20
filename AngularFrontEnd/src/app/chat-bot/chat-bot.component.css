@@ -1,7 +1,6 @@
-.bubbles {
-	margin-top: 25px;
-
-	height: 60vh;
+.bubbles {	
+	margin-bottom: 70px;
+	height: 55vh;
 	width: 85%;
 
 	overflow-y: scroll;
@@ -9,6 +8,8 @@
 
 	display: flex;
 	flex-direction: column-reverse;
+
+/*	border: 1px solid red;*/
 }
 
 .chat-area-wrapper {
@@ -28,17 +29,33 @@
     box-shadow: 0 0 100px rgba(255, 255, 255, 0.3);
     border-radius: 20px;
 
-
 	height: 75vh;
-	width: 50%;
+	min-width: min(65%, 400px);
 
 	margin-top: 80px;
 }
 
 .chat-input {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: absolute;
 	bottom: 0;
-
-
 	padding-bottom: 10px;
+}
+
+.chat-input > * {
+	font-size: 16px;
+}
+
+#message-input {
+	margin: 0;
+}
+
+#send-button {
+	scale: 0.75;
+}
+
+.rec-buttons {
+	scale: 0.75;
 }
