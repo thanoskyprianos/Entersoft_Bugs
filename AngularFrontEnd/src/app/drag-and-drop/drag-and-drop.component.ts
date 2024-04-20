@@ -19,7 +19,7 @@ export class DragAndDropComponent {
   public dropped(files: NgxFileDropEntry[]) {
     console.log(files);
 
-    this.httpService.saveData(this.dataType, files);
+    this.httpService.sendCSVData(this.dataType, files);
   }
 
   public fileOver(event: any){

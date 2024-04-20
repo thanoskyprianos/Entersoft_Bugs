@@ -1,42 +1,42 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { NgxFileDropEntry, FileSystemFileEntry } from 'ngx-file-drop'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpServiceService {
-  private url = 'http://localhost:8000/db/'
+  private url = 'http://localhost:8000/'
 
   constructor(private http: HttpClient) { }
 
-  saveData(dataType: string, files: NgxFileDropEntry[]) {
+  sendCSVData(dataType: string, files: NgxFileDropEntry[]) {
     for (const droppedFile of files) {
       const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
       fileEntry.file((file: File) => {
+        const formData = new FormData();
 
-          // Here you can access the real file
-          // console.log(droppedFile.relativePath, file);
+        formData.append('file', file, droppedFile.relativePath);
+        formData.append('type', dataType);
 
-          // You could upload it like this:
-          const formData = new FormData();
-          formData.append('file', file, droppedFile.relativePath);
-          formData.append('type', dataType);
-
-          // Headers
-          // const headers = new HttpHeaders({
-          //   'Content-Type': 'text/plain'
-          // })
-
-          const resp = this.http.post(this.url, formData, {responseType: 'text'});
-          resp.subscribe(
-            (message) => { console.log(message); }
-          );
-        });
+        const resp = this.http.post(`${this.url}/csv/`, formData, {responseType: 'text'});
+        resp.subscribe((message) => { console.log(message); });
+      });
     }
   }
 
-  saveRecording() {
-    // todo
+  sendAudio(blob: Blob): Observable<string> {
+    const formData = new FormData();
+    formData.append('blob', blob);
+
+    return this.http.post(`${this.url}/audio/`, formData, {responseType: 'text'});
+  }
+
+  sendText(text: string): Observable<string> {
+    const formData = new FormData();
+    formData.append('prompt', text);
+
+    return this.http.post(`${this.url}/text/`, formData, {responseType: 'text'});
   }
 }

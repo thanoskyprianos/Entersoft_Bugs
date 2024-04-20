@@ -21,6 +21,8 @@ from . import views
 
 urlpatterns = [
     path('', views.main),
-    path('db/', views.test),
+    path('csv/', views.csv),
+    path('audio/', views.audio),
+    path('text/', views.text),
     path('admin/', admin.site.urls),
 ]
