@@ -1,0 +1,18 @@
+.dropzone {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	width: 250px;
+}
+
+#test {
+	text-align: center;
+	text-align-last: center;
+	margin: 5px 25px;
+}
+
+select {
+	margin: 5px 0px;
+}

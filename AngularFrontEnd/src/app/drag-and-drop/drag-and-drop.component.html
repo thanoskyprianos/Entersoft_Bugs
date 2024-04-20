@@ -1,0 +1,15 @@
+<div class="dropzone-wrapper">
+	<form class="dropzone">
+		<ngx-file-drop id="test" dropZoneLabel="Drop files here or: " (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" accept=".csv" [showBrowseBtn]="true"></ngx-file-drop>
+
+		<select #types name="types" id="types" (change)="onSelected(types.value)">
+			<option value="">---Plese choose an option---</option>
+			<option value="cash-flow">Cash flow report</option>
+			<option value="last-sales">Last week's sales by day</option>
+			<option value="last-customers">Last week's top customers</option>
+			<option value="last-products">Last week's top products</option>
+			<option value="last-orders">Last week's order statistics</option>
+			<option value="understocked">Understocked products</option>
+		</select>
+	</form>
+</div>

@@ -9,5 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent {
-
+  
 }

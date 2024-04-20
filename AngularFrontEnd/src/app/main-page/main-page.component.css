@@ -1,4 +1,17 @@
+#main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 250px;
+
     border: 1px solid transparent;
     height: 300px;
     background-color: rgba(34, 12, 114, 0.1);
@@ -7,9 +20,7 @@ main {
 
 /* Style for the title */
 h1 {
-    text-align: center;
     font-size: 24px;
-    margin-top: 30px;
     color: white;
 
     font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -18,10 +29,6 @@ h1 {
 /* Style for the buttons */
 .button-container {
     display: flex;
-    justify-content: center;
-    align-items: baseline;
-
-    margin-top: 150px;
 }
 
 .button-40 {
