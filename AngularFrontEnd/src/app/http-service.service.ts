@@ -23,8 +23,15 @@ export class HttpServiceService {
           formData.append('file', file, droppedFile.relativePath);
           formData.append('type', dataType);
 
-          const resp = this.http.post(this.url, formData);
-          resp.subscribe();
+          // Headers
+          // const headers = new HttpHeaders({
+          //   'Content-Type': 'text/plain'
+          // })
+
+          const resp = this.http.post(this.url, formData, {responseType: 'text'});
+          resp.subscribe(
+            (message) => { console.log(message); }
+          );
         });
     }
   }

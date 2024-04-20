@@ -8,6 +8,6 @@ def main(request):
 def test(request):
 	print(request.body)
 
-	response = HttpResponse('<h>Hello, World!</h>', )
-	response.headers['Access-Control-Allow-Origin'] = 'http://localhost:4200'
+	response = HttpResponse('Hello, World!')
+	response['Access-Control-Allow-Origin'] = 'http://localhost:4200'
 	return response
