@@ -125,8 +125,8 @@ class AiText:
 		
 		wrapper = BedrockAgentRuntimeWrapper(runtime_client)
 
-		agent_id = "VIJJJ7HGF7"
-		agent_alias_id = "DHA6F9OIIQ"
+		agent_id = "SNV7UL9TBM"
+		agent_alias_id = "CEAYUDNJTE"
 		session_id = "FAKE_SESSION_ID"
 
 		expected_params = {
