@@ -2,8 +2,14 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
 import wave
 
+import os
 import csv
 from io import StringIO
+
+# Ai speech 
+import speech_recognition as sr 
+from pydub import AudioSegment
+from pydub.silence import split_on_silence
 
 class Parser:
 	def __init__(self, csvString):
@@ -16,6 +22,23 @@ class Parser:
 			for row in csv_reader:
 				print(row)
 
+class AiSpeech:
+	def __init__(self):
+		self.r = sr.Recognizer()
+	
+	def audioTranscribe(self, path) -> str:
+		r = sr.Recognizer()
+		with sr.AudioFile(path) as source:
+			audio = r.record(source)
+
+		try:
+			transcription = r.recognize_google(audio)
+			print('Google thinks you said: ', transcription)
+		except Exception as e: # dont do this in production
+			print(e)
+			transcription = ''
+
+		return transcription
 
 def main(_):
 	return HttpResponse('Django is working!')
@@ -50,17 +73,14 @@ def audio(request):
 	audio = wave.open('test.wav', 'wb')
 	audio.setnchannels(1)
 	audio.setsampwidth(2)
-	audio.setframerate(50000)
+	audio.setframerate(44100)
 
 	blob = audio_data.read()
 	audio.writeframes(blob)
 	audio.close()
 
-	# do audio processing
-	# get text prompt from AI (we'll pass it again to a text request)
-
-	prompt = 'TestGeneration' # add the prompt here
-
+	r = AiSpeech()
+	prompt = r.audioTranscribe('test.wav')
 	response.content = prompt
 
 	return response

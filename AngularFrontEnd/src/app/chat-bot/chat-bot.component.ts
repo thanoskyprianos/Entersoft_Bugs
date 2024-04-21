@@ -101,11 +101,13 @@ export class ChatBotComponent {
   successCallback(stream: any) {
     let mimeType: "audio/wav" = "audio/wav";
     let numberOfAudioChannels: 1 = 1;
+    let type: 'audio' = 'audio';
 
     var options = {
+      type: type,
       mimeType: mimeType,
       numberOfAudioChannels: numberOfAudioChannels,
-      sampleRate: 50000,
+      sampleRate: 44100,
     };
 
     // Start recording
