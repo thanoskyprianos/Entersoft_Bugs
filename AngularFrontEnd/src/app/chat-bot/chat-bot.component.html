@@ -11,8 +11,12 @@
 		<div class="chat-input">
 			<button class="button-40 rec-buttons" *ngIf="!recording" (click)="startRecording()">> Rec</button>
 			<button class="button-40 rec-buttons" *ngIf="recording" (click)="stopRecording()">> Stop</button>
-			<input id="message-input" type="text" (keydown.enter)="onEnter($event)" [disabled]="processing">
-			<button id="send-button" class="button-40">> Send</button>
+
+			
+			<input id="prompt" type="text" [(ngModel)]="prompt" (keydown.enter)="onEnter()">
+
+			<button id="send-button" class="button-40" (click)="onEnter()">> Send</button>
+			
 		</div>
 	</div>
 </div>

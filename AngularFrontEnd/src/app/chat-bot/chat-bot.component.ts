@@ -8,6 +8,8 @@ import { HttpServiceService } from '../http-service.service';
 import * as RecordRTC from 'recordrtc';
 import { DomSanitizer } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-chat-bot',
   standalone: true,
@@ -15,7 +17,8 @@ import { DomSanitizer } from '@angular/platform-browser';
     RouterLink, 
     HeaderComponent, 
     ChatBubbleComponent,
-    NgIf
+    NgIf,
+    FormsModule,
   ],
   templateUrl: './chat-bot.component.html',
   styleUrl: './chat-bot.component.css',
@@ -35,21 +38,26 @@ export class ChatBotComponent {
   recording: boolean = false;
   processing: boolean = false;
 
+  prompt = '';
+
   constructor (
     private domSanitizer: DomSanitizer, 
-    private httpService: HttpServiceService
+    private httpService: HttpServiceService,
   ) { }
 
-  onEnter(event: any) {
-    let toSent = event.target.value;
+  onEnter() {
+    let toSent = this.prompt;
 
     if (toSent.length === 0) {
       return;
     }
 
+    console.log(`To sent: ${toSent}`)
+
     this.messages.unshift(toSent);
     console.log(toSent);
-    event.target.value = '';
+
+    this.prompt = '';
 
     this.processing = true;
 
